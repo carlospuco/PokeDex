@@ -1,0 +1,25 @@
+.button {
+    border: none;
+    background-color: rgb(77, 36, 143);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    &--small {
+      padding: 0.5rem 1rem;
+    }
+  
+    &--large {
+      padding: 0.6rem 2rem;
+    }
+  
+    &:disabled {
+        color:rgb(58, 60, 65);
+        font-weight: bold;
+        cursor: not-allowed;
+        background-color: rgb(204, 202, 202) !important;
+        pointer-events:none;
+        opacity: .5;
+    }
+  }
+  

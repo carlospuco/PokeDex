@@ -1,0 +1,29 @@
+.slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 60px;
+  padding: 30px;
+  padding-left: 40px;
+  background: #fdfdfd;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  color: rgb(6, 6, 6);
+
+  &__sliderInput{
+    padding: 5px;
+    color: rgb(127, 134, 134);
+    font-weight: bold;
+  }
+}
+
+.slider input[type="range"] {
+  width: 420px;
+  height: 2px;
+  background-color: rgb(59, 23, 117);
+  color: rgb(59, 23, 117);
+  border: 2px solid red;
+}
