@@ -1,0 +1,25 @@
+
+.table{
+
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    
+    table, td {
+        border: 1px solid;
+        color: rgb(126, 125, 125);
+      }
+
+    th{
+        border: 1px solid;
+        color:black;
+        border-color: rgb(126, 125, 125);
+    }
+      
+      table {
+        
+        width: 70%;
+        border-collapse: collapse;
+      } 
+}
+
