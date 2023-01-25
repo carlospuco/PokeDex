@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import Button from "../../atoms/button/button";
 import Input from "../../atoms/input/input";
 import InputNew from "../../atoms/inputnew/inputnew";
@@ -8,17 +8,11 @@ import Table from "../../molecules/table/table";
 import "./todo.scss";
 
 interface TodoProps {
-  children?: React.ReactNode;
-  disabled?: boolean;
-  onClick?: () => void;
-  size?: "small" | "large";
+  
 }
 
 const Todo: FC<TodoProps> = ({
-  children,
-  disabled = false,
-  onClick,
-  size = "large",
+ 
 }) => {
   return (
     <div className="todo">
@@ -26,7 +20,7 @@ const Todo: FC<TodoProps> = ({
         <Label change="title">Listado de Pokemon</Label>
         <div className="todo--search">
           <Input></Input>
-          <Button> + Nuevo</Button>
+          <Button picture={<img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" width={20} />}> Nuevo</Button>
         </div>
         <div className="todo--table">
           <Table></Table>
@@ -47,8 +41,8 @@ const Todo: FC<TodoProps> = ({
           <Slider></Slider>
         </div>
         <div className="todo--searchnew">
-          <Button>Guardar</Button>
-          <Button>Cancelar</Button>
+          <Button picture={<img src="https://cdn-icons-png.flaticon.com/512/2874/2874050.png" width={20} color="white"/>}> Guardar</Button>
+          <Button picture={<img src="https://cdn-icons-png.flaticon.com/512/2874/2874787.png" width={20} />}> Cancelar</Button>
         </div>
       </div>
     </div>
