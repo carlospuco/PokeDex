@@ -2,9 +2,15 @@
     vertical-align: middle;
     width: 15px;
     height: 15px;
-    margin-left: 70px;
+    margin-left: 10px;
 
     &--style{
         font-weight: bold;
     }
+
+    &--title{
+        font-weight: bold;
+        color: rgb(111, 111, 111);
+    }
+    
   }

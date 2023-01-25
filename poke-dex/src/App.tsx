@@ -6,15 +6,12 @@ import Input from './components/atoms/input/input';
 import Slider from './components/atoms/slider/slider';
 import Label from './components/atoms/label/label';
 import Table from './components/molecules/table/table';
+import Todo from './components/organisms/todo/todo';
 
 function App() {
   return (
     <div>
-      <Button disabled={false}>Button</Button>
-      <Input></Input>
-      <Slider></Slider>
-      <Label change=''>Hola</Label>
-      <Table></Table>
+      <Todo></Todo>
     </div>
   );
 }

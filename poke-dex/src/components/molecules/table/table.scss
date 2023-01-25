@@ -6,19 +6,21 @@
     align-items: center;
     
     table, td {
-        border: 1px solid;
+        border: 2px solid;
         color: rgb(126, 125, 125);
+        background-color: rgb(255, 255, 255);
       }
 
     th{
         border: 1px solid;
         color:black;
         border-color: rgb(126, 125, 125);
+        background-color: rgb(255, 255, 255);
     }
       
       table {
         
-        width: 70%;
+        width: 100%;
         border-collapse: collapse;
       } 
 }

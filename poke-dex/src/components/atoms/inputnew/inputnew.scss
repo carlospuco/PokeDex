@@ -11,7 +11,7 @@
         justify-content: center;
         box-sizing: border-box;
         color: #777171;
-        padding: 10px 10px 10px 35px;
+        padding: 10px 10px 10px 20px;
         width: 100%;
         border: 2px solid rgb(164, 159, 159);
         border-radius: 3px ;
@@ -19,16 +19,5 @@
         
       }
       
-      &__inputIcon {
-        color: #817d7d;
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        left: 12px;
-        top: 50%;
-        margin-right: 5px;
-        transform: translateY(-50%);
-      }
 
   }
-

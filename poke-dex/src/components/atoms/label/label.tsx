@@ -3,7 +3,7 @@ import "./label.scss";
 
 interface LabelProps {
   children: React.ReactNode;
-  change:"style"|"";
+  change:"style"|"title"|"";
 }
 
 const Label: FC<LabelProps> = ({ children, change=""}) => {

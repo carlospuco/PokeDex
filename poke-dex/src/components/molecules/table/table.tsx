@@ -20,15 +20,16 @@ const Table: FC<TableProps> = ({
     
       <table>
         <tr>
+          <th><Label change="style">Nombre</Label></th>
           <th><Label change="style">Imagen</Label></th>
-          <th>Lastname</th>
+          <th><Label change="style">Ataque</Label></th>
+          <th><Label change="style">Defensa</Label></th>
+          <th><Label change="style">Acciones</Label></th>
         </tr>
         <tr>
           <td>Peter</td>
           <td>Griffin</td>
-        </tr>
-        <tr>
-          <td>Lois</td>
+          <td>Peter</td>
           <td>Griffin</td>
         </tr>
       </table>
