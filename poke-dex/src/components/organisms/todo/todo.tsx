@@ -46,6 +46,10 @@ const Todo: FC<TodoProps> = ({
           <Label change="title">Defensa: </Label>
           <Slider></Slider>
         </div>
+        <div className="todo--searchnew">
+          <Button>Guardar</Button>
+          <Button>Cancelar</Button>
+        </div>
       </div>
     </div>
   );

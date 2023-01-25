@@ -27,9 +27,10 @@ const Table: FC<TableProps> = ({
           <th><Label change="style">Acciones</Label></th>
         </tr>
         <tr>
-          <td>Peter</td>
-          <td>Griffin</td>
-          <td>Peter</td>
+          <td>nombre</td>
+          <td>imagen</td>
+          <td>80</td>
+          <td>68</td>
           <td>Griffin</td>
         </tr>
       </table>
