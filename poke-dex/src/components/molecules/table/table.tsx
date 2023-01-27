@@ -1,23 +1,24 @@
 import React, { FC } from "react";
+import { Grid } from "../../atoms/grid/grid";
 import Label from "../../atoms/label/label";
 import "./table.scss";
 
+interface PokemonType{
+  nombre: string;
+  imagen: string;
+  ataque: number;
+  defensa: number;
+}
+
 interface TableProps {
-  children?: React.ReactNode;
-  disabled?: boolean;
-  onClick?: () => void;
-  size?: "small" | "large";
+  pokemons: PokemonType[],
 }
 
 const Table: FC<TableProps> = ({
-  children,
-  disabled = false,
-  onClick,
-  size = "large",
+  pokemons
 }) => {
   return (
- <form className="table">
-    
+    <div className="table">
       <table>
         <tr>
           <th><Label change="style">Nombre</Label></th>
@@ -26,17 +27,19 @@ const Table: FC<TableProps> = ({
           <th><Label change="style">Defensa</Label></th>
           <th><Label change="style">Acciones</Label></th>
         </tr>
-        <tr>
-          <td>nombre</td>
-          <td>imagen</td>
-          <td>80</td>
-          <td>68</td>
-          <td>Griffin</td>
-        </tr>
+        {
+          pokemons?.map(pokemon => (
+            <tr>
+              <td>{pokemon.nombre}</td>
+              <td><img src={pokemon.imagen} alt="new pokemon image" width="90px"/></td>
+              <td>{`${pokemon.ataque}`}</td>
+              <td>{`${pokemon.defensa}`}</td>
+              <td>acciones</td>
+            </tr>
+          ))
+        }
       </table>
-
- </form>
-    
+    </div>
   );
 };
 

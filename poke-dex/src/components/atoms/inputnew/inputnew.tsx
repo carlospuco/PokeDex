@@ -2,22 +2,28 @@ import React, { FC } from "react";
 import "./inputnew.scss";
 
 interface InputNewProps {
-  children?: React.ReactNode;
-  onClick?: () => void;
-  placeholder:String;
+  placeholder: string;
   size?: "search" | "values";
+  value: string;
+  onChange: (e: any) => void;
 }
 
 const InputNew: FC<InputNewProps> = ({
-  children,
-  onClick,
   placeholder="",
   size = "search",
+  value,
+  onChange
 }) => {
   return (
-        <div className={`input input--${size}`}>
-            <input type="search" className="input__inputStyle" placeholder=""></input>
-        </div>
+    <div className={`input input--${size}`}>
+        <input 
+          type="text"
+          className="input__inputStyle"
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+        />
+    </div>
   );
 };
 

@@ -2,23 +2,15 @@ import React, { FC, useState } from "react";
 import "./slider.scss";
 
 interface SliderProps {
-  children?: React.ReactNode;
-  disabled?: boolean;
-  onClick?: () => void;
-  size?: "small" | "large";
+  onChange: (e:any) => void;
+  value: number;
 }
 
 const Slider: FC<SliderProps> = ({
-  children,
-  disabled = false,
-  onClick,
-  size = "large",
+  value,
+  onChange
 }) => {
-  const [power, setPower] = useState(100);
 
-  const getSliderValue = (event: any) => {
-    setPower(event.target.value);
-  };
   return (
     <div className="slider">
     <span className="slider__sliderInput">0</span>
@@ -27,10 +19,10 @@ const Slider: FC<SliderProps> = ({
         id="power"
         min="0"
         max="100"
-        onChange={getSliderValue}
-        value={power}
+        onChange={onChange}
+        value={value}
       ></input>
-      <span className="slider__sliderInput">{power}</span>
+      <span className="slider__sliderInput">{value}</span>
     </div>
   );
 };

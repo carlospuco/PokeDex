@@ -2,30 +2,36 @@ import React, { FC } from "react";
 import "./button.scss";
 
 interface ButtonProps {
-  children: React.ReactNode;
-  picture?: React.ReactNode;
+  text: string;
   disabled?: boolean;
-  onClick?: () => void;
+  onClick: () => void;
   size?: "small" | "large";
-
+  type?: "submit";
+  picture: string;
 }
 
 const Button: FC<ButtonProps> = ({
-  children,
+  text,
   picture,
   disabled = false,
-  onClick,
   size = "large",
+  type, 
+  onClick
 }) => {
+
   return (
     <button
       className={`button button--${size}`}
       disabled={disabled}
+      type={type}
       onClick={onClick}
     >
-      {picture} {children}
+      <div className="button__icon">
+        <span><img src={picture} alt="button icon" width="20px"/></span>
+        <p>{text}</p>
+      </div>
     </button>
-  );
+  )
 };
 
 export default Button;

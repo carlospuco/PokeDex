@@ -1,0 +1,14 @@
+.grid{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding: 16px;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    justify-content: center;
+    margin: 10px;
+}
