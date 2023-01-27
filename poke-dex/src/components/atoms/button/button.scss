@@ -1,6 +1,6 @@
 .button {
     border: none;
-    background-color: rgb(77, 36, 143);
+    background-color: rgb( 105, 89, 246);
     color: white;
     border-radius: 4px;
     cursor: pointer;
@@ -12,11 +12,11 @@
     gap:10px
   
     &--small {
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 3rem;
     }
   
     &--large {
-      padding: 0.6rem 2rem;
+      padding: 0.4rem 2rem;
     }
   
     &:disabled {
