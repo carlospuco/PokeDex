@@ -1,5 +1,5 @@
 .button {
-    border: none;
+
     background-color: rgb( 105, 89, 246);
     color: white;
     border-radius: 4px;
@@ -9,8 +9,8 @@
     align-items: center;
     margin-top: 10px;
     margin-left: 20px;
-    gap:10px
-  
+    gap:10px;
+    border:none;
     &--small {
       padding: 0.5rem 3rem;
     }
@@ -38,6 +38,7 @@
 
     &__iconActions{
       background-color: white;
+      width: 10%;
     }
   }
 

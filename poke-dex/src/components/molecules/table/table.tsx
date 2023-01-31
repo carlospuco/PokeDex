@@ -37,7 +37,12 @@ const Table: FC<TableProps> = ({
               <td><img src={pokemon.imagen} alt="new pokemon image" width="90px"/></td>
               <td>{`${pokemon.ataque}`}</td>
               <td>{`${pokemon.defensa}`}</td>
-              <td>{<Button   picture={DeleteIcon}></Button>}</td>
+              <td>{
+                <div className="table__tableIcon">
+                <Button action="iconActions"  picture={EditIcon}></Button>
+                <Button action="iconActions"  picture={DeleteIcon}></Button>
+                </div>
+                }</td>
             </tr>
           ))
         }

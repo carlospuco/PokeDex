@@ -18,12 +18,12 @@ const Button: FC<ButtonProps> = ({
   size = "large",
   type, 
   onClick,
-  action = "iconActions"
+  action
 }) => {
 
   return (
     <button
-      className={`button button--${size} `}
+      className={`button button--${size} button__${action} `}
       disabled={disabled}
       type={type}
       onClick={onClick}
