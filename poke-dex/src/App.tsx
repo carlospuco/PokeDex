@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div>
-      <Todo pokemons={pokemons} setPokemons={setPokemons}></Todo>
+      <Todo pokemons={pokemons} handleChangePokemons={setPokemons}/>
     </div>
   );
 }

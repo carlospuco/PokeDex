@@ -2,12 +2,13 @@ import React, { FC } from "react";
 import "./button.scss";
 
 interface ButtonProps {
-  text: string;
+  text?: string;
   disabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
   size?: "small" | "large";
   type?: "submit";
   picture: string;
+  action?: "icon"|"iconActions";
 }
 
 const Button: FC<ButtonProps> = ({
@@ -16,12 +17,13 @@ const Button: FC<ButtonProps> = ({
   disabled = false,
   size = "large",
   type, 
-  onClick
+  onClick,
+  action = "iconActions"
 }) => {
 
   return (
     <button
-      className={`button button--${size}`}
+      className={`button button--${size} `}
       disabled={disabled}
       type={type}
       onClick={onClick}

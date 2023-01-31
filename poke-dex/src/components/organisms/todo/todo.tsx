@@ -19,12 +19,13 @@ interface PokemonType{
 }
 interface TodoProps {
   pokemons: PokemonType[],
-  setPokemons: React.Dispatch<React.SetStateAction<PokemonType[]>>
+  //setPokemons: React.Dispatch<React.SetStateAction<PokemonType[]>>
+  handleChangePokemons:(newPokemons: PokemonType[])=>void;
 }
 
 const Todo: FC<TodoProps> = ({
   pokemons, 
-  setPokemons
+  handleChangePokemons
 }) => {
   
   const [nombre, setNombre] = useState<string>("");
@@ -43,7 +44,7 @@ const Todo: FC<TodoProps> = ({
       defensa
     }
 
-    setPokemons([...pokemons, newPokemon])
+    handleChangePokemons([...pokemons, newPokemon])
     alert(`Pokemon ${newPokemon.nombre} agregado satisfactoriamente!`)
   }
 

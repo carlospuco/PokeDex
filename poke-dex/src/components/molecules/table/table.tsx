@@ -1,7 +1,10 @@
 import React, { FC } from "react";
+import Button from "../../atoms/button/button";
 import { Grid } from "../../atoms/grid/grid";
 import Label from "../../atoms/label/label";
 import "./table.scss";
+import DeleteIcon from "../../../assets/delete.svg"
+import EditIcon from "../../../assets/edit.svg"
 
 interface PokemonType{
   nombre: string;
@@ -34,7 +37,7 @@ const Table: FC<TableProps> = ({
               <td><img src={pokemon.imagen} alt="new pokemon image" width="90px"/></td>
               <td>{`${pokemon.ataque}`}</td>
               <td>{`${pokemon.defensa}`}</td>
-              <td>acciones</td>
+              <td>{<Button   picture={DeleteIcon}></Button>}</td>
             </tr>
           ))
         }
