@@ -2,10 +2,10 @@ import React, { FC } from "react";
 import "./inputnew.scss";
 
 interface InputNewProps {
-  placeholder: string;
-  size?: "search" | "values";
-  value: string;
-  onChange: (e: any) => void;
+  placeholder?: string;
+  size?: "search";
+  value?: string;
+  onChange?: (e: any) => void;
 }
 
 const InputNew: FC<InputNewProps> = ({
@@ -15,7 +15,6 @@ const InputNew: FC<InputNewProps> = ({
   onChange
 }) => {
   return (
-    <div className={`input input--${size}`}>
         <input 
           type="text"
           className="input__inputStyle"
@@ -23,7 +22,6 @@ const InputNew: FC<InputNewProps> = ({
           value={value}
           onChange={onChange}
         />
-    </div>
   );
 };
 

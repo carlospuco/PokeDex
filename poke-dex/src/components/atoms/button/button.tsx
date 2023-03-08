@@ -2,17 +2,18 @@ import React, { FC } from "react";
 import "./button.scss";
 
 interface ButtonProps {
+  children?: React.ReactNode;
   text?: string;
   disabled?: boolean;
   onClick?: () => void;
-  size?: "small" | "large";
+  size?:  "large";
   type?: "submit";
   picture: string;
-  action?: "icon"|"iconActions";
+  action?: "icon"|"icon-actions";
 }
 
 const Button: FC<ButtonProps> = ({
-  text,
+  children,
   picture,
   disabled = false,
   size = "large",
@@ -30,7 +31,7 @@ const Button: FC<ButtonProps> = ({
     >
       <div className="button__icon">
         <span><img src={picture} alt="button icon" width="20px"/></span>
-        <p>{text}</p>
+        <p>{children}</p>
       </div>
     </button>
   )

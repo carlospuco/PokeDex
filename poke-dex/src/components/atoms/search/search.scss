@@ -6,17 +6,15 @@
     width: 271px;
   
 
-    &__inputStyle {
+    &__searchStyle {
         display: flex;
         justify-content: center;
         box-sizing: border-box;
         color: #777171;
         padding: 10px 10px 10px 35px;
-        width: 100%;
+        width: 500%;
         border: 2px solid rgb(164, 159, 159);
         border-radius: 3px ;
-
-        
       }
       
       &__inputIcon {
@@ -29,7 +27,6 @@
         margin-right: 5px;
         transform: translateY(-50%);
       }
-
   }
 
 

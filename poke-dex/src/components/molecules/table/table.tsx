@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import Button from "../../atoms/button/button";
-import { Grid } from "../../atoms/grid/grid";
 import Label from "../../atoms/label/label";
 import "./table.scss";
 import DeleteIcon from "../../../assets/delete.svg"
@@ -39,8 +38,8 @@ const Table: FC<TableProps> = ({
               <td>{`${pokemon.defensa}`}</td>
               <td>{
                 <div className="table__tableIcon">
-                <Button action="iconActions"  picture={EditIcon}></Button>
-                <Button action="iconActions"  picture={DeleteIcon}></Button>
+                <Button action="icon-actions"  picture={EditIcon}></Button>
+                <Button action="icon-actions"  picture={DeleteIcon}></Button>
                 </div>
                 }</td>
             </tr>

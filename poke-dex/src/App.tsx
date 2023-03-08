@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.scss';
+import './app.scss';
 import Todo from './components/organisms/todo/todo';
 
 interface PokemonType{

@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import Button from "../../atoms/button/button";
-import Input from "../../atoms/input/input";
+import Search from "../../atoms/search/search";
 import InputNew from "../../atoms/inputnew/inputnew";
 import Label from "../../atoms/label/label";
 import { Layer } from "../../atoms/layer/layer";
@@ -61,8 +61,8 @@ const Todo: FC<TodoProps> = ({
       <div className="todo--header">
         <Label change="title">Listado de Pokemon</Label>
         <div className="todo--search">
-          <Input></Input>
-          <Button text="Nuevo" onClick={handleCreate} picture={AddIcon} />
+          <Search/>
+          <Button text="Nuevo" onClick={handleCreate} picture={AddIcon} >Nuevo</Button>
         </div>
         <div className="todo--table">
           <Table pokemons={pokemons} />
@@ -97,8 +97,8 @@ const Todo: FC<TodoProps> = ({
           />
         </div>
         <div className="todo--searchnew">
-          <Button text="Guardar" onClick={handleSubmit} picture={SaveIcon} />
-          <Button text="Cancelar" onClick={handleCancel} picture={CancelIcon} />
+          <Button  onClick={handleSubmit} picture={SaveIcon} >Guardar</Button>
+          <Button  onClick={handleCancel} picture={CancelIcon}>Cancelar</Button>
         </div>
       </div>
     </div>

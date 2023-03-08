@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import "./label.scss";
 
 interface LabelProps {
-  children: React.ReactNode;
-  change:"style"|"title"|"";
+  children?: React.ReactNode;
+  change?:"style"|"title"|"";
 }
 
 const Label: FC<LabelProps> = ({ children, change=""}) => {
