@@ -3,13 +3,16 @@ import Button from "../../atoms/button/button";
 import Search from "../../atoms/search/search";
 import InputNew from "../../atoms/inputnew/inputnew";
 import Label from "../../atoms/label/label";
-import { Layer } from "../../atoms/layer/layer";
+
 import Slider from "../../atoms/slider/slider";
 import Table from "../../molecules/table/table";
 import "./todo.scss";
 import SaveIcon from "../../../assets/save.svg"
 import CancelIcon from "../../../assets/cancel.svg"
 import AddIcon from "../../../assets/add.svg"
+import SearchIcon from '@mui/icons-material/Search';
+
+
 
 interface PokemonType{
   nombre: string;
@@ -61,7 +64,7 @@ const Todo: FC<TodoProps> = ({
       <div className="todo--header">
         <Label change="title">Listado de Pokemon</Label>
         <div className="todo--search">
-          <Search/>
+          <Search children={<SearchIcon/>}></Search>
           <Button text="Nuevo" onClick={handleCreate} picture={AddIcon} >Nuevo</Button>
         </div>
         <div className="todo--table">
@@ -80,7 +83,7 @@ const Todo: FC<TodoProps> = ({
           <Label change="title">Ataque: </Label>
           <Slider
             value={ataque}
-            onChange={(e) => setAtaque(e.target.value)}
+            onChange={(e) => setAtaque(e)}
           />
         </div>
         <div className="todo--searchnew">
@@ -93,7 +96,7 @@ const Todo: FC<TodoProps> = ({
           <Label change="title">Defensa: </Label>
           <Slider
             value={defensa}
-            onChange={(e) => setDefensa(e.target.value)}
+            onChange={(e) => setDefensa(e)}
           />
         </div>
         <div className="todo--searchnew">

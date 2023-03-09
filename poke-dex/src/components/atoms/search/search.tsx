@@ -7,18 +7,12 @@ interface SearchProps {
   size?: "search" | "values";
 }
 
-const Search: FC<SearchProps> = ({
-  children,
-  onClick,
-  size = "search",
-}) => {
+const Search: FC<SearchProps> = ({ children, onClick, size = "search" }) => {
   return (
-        <div className={`input input--${size}`}>
-            <input type="search" className="input__searchStyle" placeholder="Buscar"></input>
-            <svg xmlns="http://www.w3.org/2000/svg" className="input__inputIcon" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z " clip-rule="evenodd"/>
-            </svg>
-        </div>
+    <div className="input__position">
+      {children && <div className="input__icon-left">{children}</div>}
+      <input type="search" className="input__searchStyle" placeholder="Buscar"/>
+    </div>
   );
 };
 

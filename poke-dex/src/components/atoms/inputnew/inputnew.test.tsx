@@ -1,38 +1,44 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import InputNew from "./inputnew";
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import InputNew from './inputnew';
 
-
-
-describe("InputNew component", () => {
-  it("should render the input element with the correct placeholder text", () => {
-    const placeholderText = "Enter some text...";
+describe('InputNew', () => {
+  test('renders with placeholder text', () => {
     const { getByPlaceholderText } = render(
-      <InputNew placeholder={placeholderText} />
+      <InputNew placeholder="Search..." />
     );
-    const inputElement = getByPlaceholderText(placeholderText);
+    const inputElement = getByPlaceholderText('Search...');
+
     expect(inputElement).toBeInTheDocument();
   });
 
-  it("should render the input element with the default 'search' size", () => {
-     render(<InputNew placeholder="hola"/>);
-     const inputElement = screen.getByPlaceholderText("hola");
-     expect(inputElement).toHaveClass("input--search");
+  test('renders as search input', () => {
+    const { container } = render(
+      <InputNew size="search" />
+    );
+    const inputElement = container.querySelector('input');
+
+    expect(inputElement).toHaveClass('input__inputStyle');
   });
 
-  it("should call the onChange callback function when the input value changes", () => {
+  test('calls onChange callback on input change', () => {
     const handleChange = jest.fn();
-    const { getByRole } = render(<InputNew onChange={handleChange} />);
-    const inputElement = getByRole("textbox");
-    const inputValue = "Some text";
-    fireEvent.change(inputElement, { target: { value: inputValue } });
+    const { getByRole } = render(
+      <InputNew onChange={handleChange} />
+    );
+    const inputElement = getByRole('textbox');
+
+    fireEvent.change(inputElement, { target: { value: 'hello' } });
+
+    expect(handleChange).toHaveBeenCalledTimes(1);
     expect(handleChange).toHaveBeenCalledWith(expect.any(Object));
   });
 
-  it("should set the value of the input element to the prop value", () => {
-    const value = "Initial value";
-    const { getByDisplayValue } = render(<InputNew value={value} />);
-    const inputElement = getByDisplayValue(value);
+  test('renders with initial value', () => {
+    const { getByDisplayValue } = render(
+      <InputNew value="initial value" />
+    );
+    const inputElement = getByDisplayValue('initial value');
     expect(inputElement).toBeInTheDocument();
   });
 });

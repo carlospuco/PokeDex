@@ -1,0 +1,72 @@
+.button {
+    border: none;
+    color:rgb(15, 38, 92);
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 20px;
+    background-color:#0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;  
+       
+    &--small {
+        padding:0.3rem 6rem ;
+    }
+
+    &--large {      
+        padding:0.8rem 6rem ;
+    } 
+    
+    &--medium {
+        padding:0.7rem 6rem ;
+    }
+
+    &--extra-large {
+        padding: 0.6rem 6rem ;
+    }
+
+    &:disabled{
+        color:rgb(15, 38, 92);
+        font-weight: bold;
+        cursor: not-allowed;
+        background-color: rgb(204, 202, 202) !important;
+        pointer-events:none;
+        opacity: .5;
+    }
+
+
+
+
+    &--primary{
+        background-color: rgb(255, 209, 0);
+    }
+
+    &--secondary{
+        background-color: rgb(233,236, 243);
+        border-bottom-color: rgb(222, 227, 237);
+    }
+
+    &--tertiary{
+        background-color: rgb(233,236, 243);
+        border-bottom-color: rgb(15, 38, 92);
+    }
+
+    &--tertiary{
+        color: rgb(255, 255, 255);
+        background-color: rgb(15,38, 92);
+        border-bottom-color: rgb(255, 255, 255);
+    }
+
+    &--destructive{
+        color: rgb(255, 255, 255);
+        background-color: rgb(183,5, 20);
+        border-bottom-color: rgb(255, 255, 255);
+    }
+
+
+
+  
+}
