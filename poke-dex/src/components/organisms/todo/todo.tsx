@@ -7,14 +7,14 @@ import Label from "../../atoms/label/label";
 import Slider from "../../atoms/slider/slider";
 import Table from "../../molecules/table/table";
 import "./todo.scss";
-import SaveIcon from "../../../assets/save.svg"
-import CancelIcon from "../../../assets/cancel.svg"
-import AddIcon from "../../../assets/add.svg"
 import SearchIcon from '@mui/icons-material/Search';
-
+import AddIcon from '@mui/icons-material/Add';
+import SaveIcon from '@mui/icons-material/Save';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 
 interface PokemonType{
+  id:number;
   nombre: string;
   imagen: string;
   ataque: number;
@@ -30,17 +30,20 @@ const Todo: FC<TodoProps> = ({
   pokemons, 
   handleChangePokemons
 }) => {
-  
+  const [id, setId] = useState<number>(0);
   const [nombre, setNombre] = useState<string>("");
   const [imagen, setImagen] = useState<string>("");
   const [ataque, setAtaque] = useState<number>(0);
   const [defensa, setDefensa] = useState<number>(0);
+  const [showForm, setShowForm] = useState<boolean>(false);
+
 
   function handleSubmit() {
     if(nombre === "" || imagen === "")
       alert("Favor lllenar todos los campos");
 
     const newPokemon = {
+      id,
       nombre,
       imagen,
       ataque,
@@ -52,11 +55,19 @@ const Todo: FC<TodoProps> = ({
   }
 
   function handleCancel() {
-    
+    setNombre("");
+    setImagen("");
+    setAtaque(0);
+    setDefensa(0);
   }
 
   function handleCreate(): void {
-    
+    setShowForm(!showForm);
+  }
+  
+  function handleDeletePokemon(pokemon: PokemonType): void {
+    const filteredPokemons = pokemons.filter((p) => p !== pokemon);
+    handleChangePokemons(filteredPokemons);
   }
 
   return (
@@ -65,13 +76,13 @@ const Todo: FC<TodoProps> = ({
         <Label change="title">Listado de Pokemon</Label>
         <div className="todo--search">
           <Search children={<SearchIcon/>}></Search>
-          <Button text="Nuevo" onClick={handleCreate} picture={AddIcon} >Nuevo</Button>
+          <Button text="Nuevo" onClick={handleCreate} picture={<AddIcon/>} >Nuevo</Button>
         </div>
         <div className="todo--table">
-          <Table pokemons={pokemons} />
+          <Table pokemons={pokemons}/>
         </div>
       </div>
-      <div className="todo--header">
+      {showForm && <div className="todo--header">
         <Label change="title">Nuevo Pokemon</Label>
         <div className="todo--searchnew">
           <Label change="title">Nombre: </Label>
@@ -100,10 +111,11 @@ const Todo: FC<TodoProps> = ({
           />
         </div>
         <div className="todo--searchnew">
-          <Button  onClick={handleSubmit} picture={SaveIcon} >Guardar</Button>
-          <Button  onClick={handleCancel} picture={CancelIcon}>Cancelar</Button>
+          <Button  onClick={handleSubmit} picture={<SaveIcon/>} >Guardar</Button>
+          <Button  onClick={handleCancel} picture={<CancelIcon/>}>Cancelar</Button>
         </div>
-      </div>
+      </div>}
+      
     </div>
   );
 };

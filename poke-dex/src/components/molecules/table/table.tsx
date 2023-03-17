@@ -5,50 +5,52 @@ import "./table.scss";
 import DeleteIcon from "../../../assets/delete.svg";
 import EditIcon from "../../../assets/edit.svg";
 
-interface PokemonType {
+interface Pokemon {
   nombre: string;
   imagen: string;
   ataque: number;
   defensa: number;
+  id:number;
 }
 
 interface TableProps {
-  pokemons: PokemonType[];
+  pokemons: Pokemon[];
 }
 
 const Table: FC<TableProps> = ({ pokemons }) => {
+
   return (
     <div className="table">
-      <table>
-        <tr>
-          <th>
+      <table className="table__element">
+        <tr className="table__row">
+          <th className="table__colum-header">
             <Label change="style">Nombre</Label>
           </th>
-          <th>
+          <th className="table__colum-header">
             <Label change="style">Imagen</Label>
           </th>
-          <th>
+          <th className="table__colum-header">
             <Label change="style">Ataque</Label>
           </th>
-          <th>
+          <th className="table__colum-header">
             <Label change="style">Defensa</Label>
           </th>
-          <th>
+          <th className="table__colum-header">
             <Label change="style">Acciones</Label>
           </th>
         </tr>
         {pokemons?.map((pokemon) => (
-          <tr>
-            <td>{pokemon.nombre}</td>
-            <td>
+          <tr key={pokemon.id} className="table__row" >
+            <td className="table__colum">{pokemon.nombre}</td>
+            <td className="table__colum">
               <img src={pokemon.imagen} alt="new pokemon image" width="90px" />
             </td>
-            <td>{`${pokemon.ataque}`}</td>
-            <td>{`${pokemon.defensa}`}</td>
-            <td>
-              <div className="table__tableIcon">
-                <Button action="icon-actions" picture={EditIcon}></Button>
-                <Button action="icon-actions" picture={DeleteIcon}></Button>
+            <td className="table__colum">{`${pokemon.ataque}`} </td>
+            <td className="table__colum">{`${pokemon.defensa}`}</td>
+            <td className="table__colum">
+              <div className="table__actions">
+                <Button action="icon-actions" picture={<img src={EditIcon} alt="button-icon-edit " width="20px"/>}></Button>
+                <Button action="icon-actions" picture={<img src={DeleteIcon} alt="button-icon-delete" width="20px"/>}></Button>
               </div>
             </td>
           </tr>

@@ -3,6 +3,7 @@ import './app.scss';
 import Todo from './components/organisms/todo/todo';
 
 interface PokemonType{
+  id:number;
   nombre: string;
   imagen: string;
   ataque: number;

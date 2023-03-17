@@ -8,7 +8,7 @@ interface ButtonProps {
   onClick?: () => void;
   size?:  "large";
   type?: "submit";
-  picture: string;
+  picture: React.ReactNode;
   action?: "icon"|"icon-actions";
 }
 
@@ -29,10 +29,10 @@ const Button: FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
     >
-      <div className="button__icon">
-        <span><img src={picture} alt="button icon" width="20px"/></span>
-        <p>{children}</p>
-      </div>
+      {picture && picture }
+       
+        {children}
+   
     </button>
   )
 };
