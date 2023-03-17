@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 
 
-import InputNew from "../atoms/inputnew/inputnew";
+
 import Label from "../atoms/label/label";
 import Slider from "../atoms/slider/slider";
 import Table from "../molecules/table/table";
@@ -11,6 +11,7 @@ import AddIcon from '@mui/icons-material/Add';
 import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Cancel';
 import Button from '../atoms/button/button';
+import Input from '../atoms/input/input';
 
 
 interface PokemonType{
@@ -85,7 +86,7 @@ const PagePokemon: FC<PageProps> = ({
       <div className="page--header">
         <Label change="title">Listado de Pokemon</Label>
         <div className="page--search">
-          <InputNew iconLeft={<SearchIcon/>} onChange={handleSearch}/>
+          <Input iconLeft={<SearchIcon/>} onChange={handleSearch}/>
           <Button text="Nuevo" onClick={handleCreate} picture={<AddIcon/>} >Nuevo</Button>
         </div>
         <div className="page--table">
@@ -96,7 +97,7 @@ const PagePokemon: FC<PageProps> = ({
         <Label change="title">Nuevo Pokemon</Label>
         <div className="page--searchnew">
           <Label change="title">Nombre: </Label>
-          <InputNew 
+          <Input
             placeholder="Nombre" 
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -109,7 +110,7 @@ const PagePokemon: FC<PageProps> = ({
         </div>
         <div className="page--searchnew">
           <Label change="title">Imagen: </Label>
-          <InputNew 
+          <Input
             placeholder="URL" 
             value={image}
             onChange={(e) => setImage(e.target.value)}

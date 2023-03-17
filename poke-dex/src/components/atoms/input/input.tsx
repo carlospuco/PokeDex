@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import "./inputnew.scss";
+import "./input.scss";
 
-interface InputNewProps {
+interface InputProps {
   placeholder?: string;
   value?: string;
   iconLeft?: React.ReactNode;
@@ -10,7 +10,7 @@ interface InputNewProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputNew: FC<InputNewProps> = ({
+const Input: FC<InputProps> = ({
   placeholder,
   value,
   onChange,
@@ -37,4 +37,4 @@ const InputNew: FC<InputNewProps> = ({
   );
 };
 
-export default InputNew;
+export default Input;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import InputNew from './inputnew';
+import InputNew from './input';
 
 describe('InputNew', () => {
   test('renders with placeholder text', () => {
