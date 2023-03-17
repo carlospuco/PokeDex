@@ -6,19 +6,26 @@ import DeleteIcon from "../../../assets/delete.svg";
 import EditIcon from "../../../assets/edit.svg";
 
 interface Pokemon {
-  nombre: string;
-  imagen: string;
-  ataque: number;
-  defensa: number;
-  id:number;
+  name: string;
+  image: string;
+  attack: number;
+  defense: number;
+  id: number;
 }
 
 interface TableProps {
   pokemons: Pokemon[];
+  onDelete: (id: number) => void;
+
 }
 
-const Table: FC<TableProps> = ({ pokemons }) => {
+const Table: FC<TableProps> = ({ pokemons, onDelete }) => {
+  
+  const handleDelete = (id: number) => {
+    onDelete(id);
+  };
 
+ 
   return (
     <div className="table">
       <table className="table__element">
@@ -40,17 +47,32 @@ const Table: FC<TableProps> = ({ pokemons }) => {
           </th>
         </tr>
         {pokemons?.map((pokemon) => (
-          <tr key={pokemon.id} className="table__row" >
-            <td className="table__colum">{pokemon.nombre}</td>
+          <tr key={pokemon.id} className="table__row">
+            <td className="table__colum">{pokemon.name}</td>
             <td className="table__colum">
-              <img src={pokemon.imagen} alt="new pokemon image" width="90px" />
+              <img src={pokemon.image} alt="new pokemon image" width="90px" />
             </td>
-            <td className="table__colum">{`${pokemon.ataque}`} </td>
-            <td className="table__colum">{`${pokemon.defensa}`}</td>
+            <td className="table__colum">{`${pokemon.attack}`} </td>
+            <td className="table__colum">{`${pokemon.defense}`}</td>
             <td className="table__colum">
               <div className="table__actions">
-                <Button action="icon-actions" picture={<img src={EditIcon} alt="button-icon-edit " width="20px"/>}></Button>
-                <Button action="icon-actions" picture={<img src={DeleteIcon} alt="button-icon-delete" width="20px"/>}></Button>
+                <Button
+                  action="icon-actions"
+                  picture={
+                    <img src={EditIcon} alt="button-icon-edit " width="20px" />
+                  }
+                ></Button>
+                <Button
+                  action="icon-actions"
+                  picture={
+                    <img
+                      src={DeleteIcon}
+                      alt="button-icon-delete"
+                      width="20px"
+                    />
+                  }
+                  onClick={() => handleDelete(pokemon.id)}
+                ></Button>
               </div>
             </td>
           </tr>

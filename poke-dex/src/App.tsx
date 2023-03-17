@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './app.scss';
-import Todo from './components/organisms/todo/todo';
+import PagePokemon from './components/pages/pagePokemons';
+
 
 interface PokemonType{
-  id:number;
-  nombre: string;
-  imagen: string;
-  ataque: number;
-  defensa: number;
+  name: string;
+  image: string;
+  attack: number;
+  defense: number;
+  id: number;
 }
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
 
   return (
     <div>
-      <Todo pokemons={pokemons} handleChangePokemons={setPokemons}/>
+      <PagePokemon pokemons={pokemons} handleChangePokemons={setPokemons}/>
     </div>
   );
 }

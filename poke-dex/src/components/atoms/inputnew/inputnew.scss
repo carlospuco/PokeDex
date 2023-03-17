@@ -1,21 +1,38 @@
 .input {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 271px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 260px;
+  height: 34px;
   
-
-    &__inputStyle {
-        display: flex;
-        justify-content: center;
-        box-sizing: border-box;
-        color: #777171;
-        padding: 10px 10px 10px 35px;
-        width: 30%;
-        border: 2px solid rgb(164, 159, 159);
-        border-radius: 3px ; 
-      }
-      
+  &__icon-left {
+    position: absolute;
+    top: 4px;
+    left: -7px;
+    z-index: 100;
+    color: gray;
+    padding-left: 12px;
   }
+
+  &__icon-search {
+    position: relative;
+    padding-left: 32px;
+    height: 34px;
+    border-radius: 3px;
+    border: 2px solid rgb(164, 159, 159);
+  }
+
+  &__icon-add{
+    border: 2px solid rgb(164, 159, 159);
+    border-radius: 3px;
+    padding-left: 12px; 
+    margin-left: -200px;
+  }
+
+  &__position {
+    position: relative;
+    width: 160px;
+    height: 28px;
+  }
+}

@@ -12,14 +12,7 @@ describe('InputNew', () => {
     expect(inputElement).toBeInTheDocument();
   });
 
-  test('renders as search input', () => {
-    const { container } = render(
-      <InputNew size="search" />
-    );
-    const inputElement = container.querySelector('input');
-
-    expect(inputElement).toHaveClass('input__inputStyle');
-  });
+ 
 
   test('calls onChange callback on input change', () => {
     const handleChange = jest.fn();
