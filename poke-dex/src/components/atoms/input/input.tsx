@@ -5,8 +5,6 @@ interface InputProps {
   placeholder?: string;
   value?: string;
   iconLeft?: React.ReactNode;
-  searchStyle?: React.ReactNode;
-  children?: React.ReactNode;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -15,8 +13,6 @@ const Input: FC<InputProps> = ({
   value,
   onChange,
   iconLeft,
-  searchStyle,
-  children,
 }) => {
   let inputClasses = "input";
   if (iconLeft) {
@@ -27,7 +23,6 @@ const Input: FC<InputProps> = ({
     <div className="input">
       {iconLeft && <div className="input__icon-left">{iconLeft}</div>}
       <input
-        type="search"
         className={`input ${inputClasses}`}
         placeholder={placeholder}
         onChange={onChange}
