@@ -1,37 +1,42 @@
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
-import InputNew from './input';
+import { act, fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import Input from './input';
 
-describe('InputNew', () => {
-  test('renders with placeholder text', () => {
-    const { getByPlaceholderText } = render(
-      <InputNew placeholder="Search..." />
-    );
-    const inputElement = getByPlaceholderText('Search...');
+describe("Input test", () => {
+  it("Should render Input", () => {
+    render(<Input />);
 
-    expect(inputElement).toBeInTheDocument();
+    const input = screen.getByPlaceholderText("Text");
+
+    expect(input).toBeInTheDocument();
   });
 
- 
+  it("Should render Input with custom placeholder", () => {
+    render(<Input placeholder="Buscar" />);
 
-  test('calls onChange callback on input change', () => {
-    const handleChange = jest.fn();
-    const { getByRole } = render(
-      <InputNew onChange={handleChange} />
-    );
-    const inputElement = getByRole('textbox');
+    const input = screen.getByPlaceholderText("Buscar");
 
-    fireEvent.change(inputElement, { target: { value: 'hello' } });
-
-    expect(handleChange).toHaveBeenCalledTimes(1);
-    expect(handleChange).toHaveBeenCalledWith(expect.any(Object));
+    expect(input).toBeInTheDocument();
   });
 
-  test('renders with initial value', () => {
-    const { getByDisplayValue } = render(
-      <InputNew value="initial value" />
-    );
-    const inputElement = getByDisplayValue('initial value');
-    expect(inputElement).toBeInTheDocument();
+  it("Should render Input", () => {
+    render(<Input iconLeft/>);
+    const input = screen.getByPlaceholderText("Text");
+    expect(input).toHaveClass("input__icon-search");
   });
+
+  it("Should render Input with value", () => {
+    render(<Input value="Valor"/>);
+    const input = screen.getByDisplayValue("Valor");
+    expect(input).toBeInTheDocument();
+  });
+
+  it("Should execute onChange", async () => {
+    const mockOnChange = jest.fn();
+    render(<Input onChange={mockOnChange} />);
+    const input = screen.getByPlaceholderText("Text");
+    await userEvent.type(input,"Valor");
+    expect(mockOnChange).toBeCalledWith("Valor");
+  });
+
 });

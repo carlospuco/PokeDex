@@ -23,16 +23,12 @@
     border: 2px solid rgb(164, 159, 159);
   }
 
-  &__icon-add{
+  &__input-new{
     border: 2px solid rgb(164, 159, 159);
     border-radius: 3px;
     padding-left: 12px; 
-    margin-left: -200px;
+    margin-left: -180px;
   }
 
-  &__position {
-    position: relative;
-    width: 160px;
-    height: 28px;
-  }
+  
 }

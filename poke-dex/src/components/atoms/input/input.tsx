@@ -9,7 +9,7 @@ interface InputProps {
 }
 
 const Input: FC<InputProps> = ({
-  placeholder,
+  placeholder="Text",
   value,
   onChange,
   iconLeft,
@@ -17,7 +17,7 @@ const Input: FC<InputProps> = ({
   let inputClasses = "input";
   if (iconLeft) {
     inputClasses += "__icon-search";
-  } else inputClasses += "__icon-add";
+  } else inputClasses += "__input-new";
 
   return (
     <div className="input">
