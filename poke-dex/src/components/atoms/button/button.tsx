@@ -24,7 +24,7 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <button
-      className={`button button--${size} button__${action} `}
+      className={`button button--${size} button__${action}`}
       disabled={disabled}
       type={type}
       onClick={onClick}

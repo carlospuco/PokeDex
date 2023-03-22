@@ -1,7 +1,4 @@
 import React, { FC, useState } from "react";
-
-
-
 import Label from "../atoms/label/label";
 import Slider from "../atoms/slider/slider";
 import Table from "../molecules/table/table";
@@ -12,41 +9,42 @@ import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Cancel';
 import Button from '../atoms/button/button';
 import Input from '../atoms/input/input';
+import { v4 as uuidv4 } from 'uuid';
 
 
-interface PokemonType{
+
+
+interface Pokemon {
   name: string;
   image: string;
   attack: number;
   defense: number;
-  id: number;
+  id: string;
 }
 interface PageProps {
-  pokemons: PokemonType[],
+  pokemons: Pokemon[],
   //setPokemons: React.Dispatch<React.SetStateAction<PokemonType[]>>
-  handleChangePokemons:(newPokemons: PokemonType[])=>void;
-
+  handleChangePokemons:(newPokemons: Pokemon[])=>void;
+ 
 }
 
 const PagePokemon: FC<PageProps> = ({
   pokemons, 
   handleChangePokemons
 }) => {
-  const [id, setId] = useState<number>(0);
   const [name, setName] = useState<string>("");
   const [image, setImage] = useState<string>("");
   const [attack, setAttack] = useState<number>(0);
   const [defense, setDefense] = useState<number>(0);
   const [showForm, setShowForm] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>("");
-
-
+  
   function handleSubmit() {
     if(name === "" || image === "")
       alert("Favor llenar pages los campos");
 
     const newPokemon = {
-      id,
+      id: uuidv4(),
       name,
       image,
       attack,
@@ -66,13 +64,17 @@ const PagePokemon: FC<PageProps> = ({
 
   function handleCreate(): void {
     setShowForm(!showForm);
+  } 
+
+  function handleDelete(id: string): void {
+    const pokemonToDelete = pokemons.find((pokemon) => pokemon.id === id);
+    if (pokemonToDelete) {
+      const newPokemons = pokemons.filter((pokemon) => pokemon.id !== id);
+      handleChangePokemons(newPokemons);
+      alert(`Pokemon ${pokemonToDelete.name} eliminado satisfactoriamente!`);
+    }
   }
-  
-  function handleDelete(id: number): void {
-    const filteredPokemons = pokemons.filter((p) => p.id !== id);
-    handleChangePokemons(filteredPokemons);
-  }
-  
+
   function handleSearch(event: React.ChangeEvent<HTMLInputElement>): void {
     setSearchTerm(event.target.value);
   }
@@ -81,16 +83,17 @@ const PagePokemon: FC<PageProps> = ({
     return p.name.toLowerCase().includes(searchTerm.toLowerCase())
   });
 
+
   return (
     <div className="page">
       <div className="page--header">
         <Label change="title">Listado de Pokemon</Label>
         <div className="page--search">
-          <Input iconLeft={<SearchIcon/>} onChange={handleSearch}/>
+          <Input iconLeft={<SearchIcon/>} onChange={handleSearch} placeholder="Buscar"/>
           <Button text="Nuevo" onClick={handleCreate} picture={<AddIcon/>} >Nuevo</Button>
         </div>
         <div className="page--table">
-          <Table pokemons={filteredPokemons} onDelete={handleDelete}/>
+          <Table pokemons={filteredPokemons} onDelete={handleDelete} />
         </div>
       </div>
       {showForm && <div className="page--header">

@@ -11,9 +11,11 @@
     margin-left: 20px;
     gap:10px;
     border:none;
-    &--small {
-      padding: 0.5rem 3rem;
-    }
+    transition: opacity 0.2s ease-in-out;
+
+    &:hover {
+      opacity: 0.7; /* Cambiar la opacidad al pasar el mouse por encima del botón */
+    }  
   
     &--large {
       padding: 0.4rem 2rem;
@@ -42,5 +44,8 @@
     }
   }
 
+
+
+  
 
   

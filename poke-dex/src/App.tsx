@@ -8,7 +8,7 @@ interface PokemonType{
   image: string;
   attack: number;
   defense: number;
-  id: number;
+  id: string;
 }
 
 function App() {
